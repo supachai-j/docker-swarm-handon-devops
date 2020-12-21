@@ -50,7 +50,7 @@ docker stack deploy
 
  ### Docker Stack 
  สำหรับไอเดียของ Stack คือ 
-
+```
  Stack my-app { 
      Service front-end {
          Container { nodejs x 3}
@@ -62,7 +62,7 @@ docker stack deploy
          Container { mongodb x 2}
      }    
 }
-
+```
 ### Docker Stack - Replicas
 ในการการจัดการตัว Docker Stack ก็จะใช้ ymal ไฟล์ในการกำหนดคุณสมบัติ application เช่นกัน โดยรูปแบบของ docker compose
 docker-compose.yml
