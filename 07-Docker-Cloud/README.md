@@ -64,3 +64,75 @@ kubectl create -f pod-defination.yml
 3. Create Service - ClusterIP - Internal
 4. Create Service - LoadBalancer - External
 
+### Deploy Voting App Example on k8s GCP 
+1. Creating voting pod and voting service
+```
+kubectl create -f voting-app-pod.yml
+kubectl get pods
+kubectl create -f voting-app-service.yml
+kubectl get services
+```
+2. Creating redis pod and redis service
+```
+kubectl create -f redis-pod.yml
+kubectl get pods
+kubectl create -f redis-service.yml
+kubectl get services
+```
+3. Creating postgres pod and postgres service
+```
+kubectl create -f postgres-pod.yml
+kubectl get pods
+kubectl create -f postgres-service.yml
+kubectl get services
+```
+4. Creating worker pod 
+```
+kubectl create -f worker-pod.yml
+kubectl get pods
+```
+5. Creating result pod and result service
+```
+kubectl create -f result-app-pod.yml
+kubectl get pods
+kubectl create -f result-app-service.yml
+kubectl get services
+```
+
+## Play with kubernetes
+http://play-with-k8s.com
+1. Initializes cluster master node:
+```
+ kubeadm init --apiserver-advertise-address $(hostname -i) --pod-network-cidr 10.5.0.0/16
+```
+
+ 2. Initialize cluster networking:
+```
+kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
+```
+3. Creating pod on play-with-k8s
+```
+git clone https://github.com/supachai-j/kubernetes-example-voting-app.git
+cd kubernetes-example-voting-app
+
+kubectl create -f voting-app-pod.yml
+kubectl create -f voting-app-service.yml
+
+kubectl get pod
+kubectl get service
+
+kubectl describe pod
+
+```
+fixed issue with single node can run workload
+```
+kubectl taint nodes --all node-role.kubernetes.io/master-
+```
+Creating pod and service all
+```
+kubectl create -f .
+```
+Deleting pod and service all
+```
+kubectl delete -f .
+```
