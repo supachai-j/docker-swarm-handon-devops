@@ -26,11 +26,11 @@ Dev Feauter#1 -----> Code Repository (GitHub) -----> Build System (Docker Cloud)
 
 ## Kubernetes Overview
 เป็น Docker Orchestration ที่ช่วยบริหารจัดการระบบ Container ทำให้ง่ายมากยิ่งขึ้น 
-
+```
 kubectl create -f pod-definition.yml
 kubectl get pods
 kubectl describe pods
-
+```
 ### Kubernetes Define files
 ในการสั่งงานหรือกำหนดพฤติกรรมต่างๆ ของ K8s ต้องทำผ่านไฟล์ในรูปแบบของ yaml ไฟล์
 - Version       เป็นการกำหนดรูปแบบว่าใช้ version อะไร
@@ -58,4 +58,9 @@ spec:
 ```
 kubectl create -f pod-defination.yml
 ```
+## Demo Kubernetes on GCP
+1. Setup a Google Container Engine Environement
+2. Create Kubernetes PODs
+3. Create Service - ClusterIP - Internal
+4. Create Service - LoadBalancer - External
 
